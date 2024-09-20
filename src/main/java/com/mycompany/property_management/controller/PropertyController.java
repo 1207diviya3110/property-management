@@ -22,7 +22,7 @@ public class PropertyController {
     //http://localhost:8080/api/v1/
     @GetMapping("/hello")
     public String sayHello(){
-        return "Hello";
+        return "Hello there";
     }
 
     @PostMapping("/properties")
