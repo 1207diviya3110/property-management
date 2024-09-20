@@ -25,6 +25,8 @@ public class PropertyServiceImpl implements PropertyService {
     @Override
     public PropertyDTO saveProperty(PropertyDTO propertyDTO) {
 
+        System.out.println("Inside service layer");
+
        PropertyEntity pe  =  propertyConvertor.convertDTOtoEntity(propertyDTO);
         pe = propertyRepository.save(pe);
 
