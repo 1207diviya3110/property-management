@@ -55,9 +55,7 @@ public class PropertyServiceImpl implements PropertyService {
 
             PropertyEntity pe = optEn.get(); // data from database
             pe.setTitle(propertyDTO.getTitle()); //overwriting the existing data
-            pe.setOwnerName(propertyDTO.getOwnerName());
             pe.setDescription(propertyDTO.getDescription());
-            pe.setOwnerEmail(propertyDTO.getOwnerEmail());
             pe.setPrice(propertyDTO.getPrice());
             pe.setAddress(propertyDTO.getAddress());
             dto = propertyConvertor.convertEntityToDTO(pe);
