@@ -6,24 +6,22 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "USER_TABLE")
+@Table(name = "ADDRESS_TABLE")
 @Getter
 @Setter
 @NoArgsConstructor
-public class UserEntity {
+public class AddressEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String ownerName;
-    @Column(name = "EMAIL", nullable = false)
-    private String ownerEmail;
-    private String phone;
-    private String password;
-
     private String houseNo;
     private String street;
     private String city;
     private String postalCode;
     private String country;
 
+    @OneToOne
+    @JoinColumn(name = "USER_ID", nullable = false)
+    private UserEntity userEntity;
 }
