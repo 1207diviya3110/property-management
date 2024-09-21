@@ -4,6 +4,8 @@ import com.mycompany.property_management.convertor.UserConvertor;
 import com.mycompany.property_management.dto.UserDTO;
 import com.mycompany.property_management.entity.UserEntity;
 import com.mycompany.property_management.service.UserService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -23,8 +25,13 @@ public class UserController {
     @Autowired
     private UserConvertor userConvertor;
 
+    @Operation( description = "This method is used for user registration")
     @PostMapping("/register")
-    public ResponseEntity<UserDTO> register(@Valid @RequestBody UserDTO userDTO){
+    public ResponseEntity<UserDTO> register(@Parameter(
+            name = "UserDTO",
+            example = "User data",
+            required = true
+    ) @Valid @RequestBody UserDTO userDTO){
         userDTO = userService.register(userDTO);
 
         ResponseEntity<UserDTO> responseEntity = new ResponseEntity<>(userDTO, HttpStatus.CREATED);
